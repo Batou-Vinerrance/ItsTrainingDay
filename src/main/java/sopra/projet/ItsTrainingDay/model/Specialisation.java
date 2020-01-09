@@ -35,7 +35,7 @@ public @Data class Specialisation {
 	inverseJoinColumns = @JoinColumn(name="level_id"))
 	private List<Level> levelss = new ArrayList<Level>(); 
 	
-	@OneToMany
+	@OneToMany(mappedBy = "specialisation")
 	private List<Program> programss = new ArrayList<Program>(); 
 	
 	public Specialisation() {

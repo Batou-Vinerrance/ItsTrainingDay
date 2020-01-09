@@ -11,11 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
 import lombok.Data;
 
 @Entity
+
 public @Data class Program {
 
 		@Id
@@ -46,6 +48,12 @@ public @Data class Program {
 		@ManyToOne
 		@JoinColumn(name = "spe_id")
 		private Specialisation specialisation; 
+		
+		@ManyToOne
+		private InProgress progressing;
+		
+		@ManyToOne
+		private InProgress inProgress;
 		
 		public Program() {
 			super();

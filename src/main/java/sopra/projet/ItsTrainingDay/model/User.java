@@ -13,11 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
 import lombok.Data;
 
 @Entity
+@Table(name = "athlete")
 public @Data class User {
 	
 	@Id
@@ -42,19 +44,15 @@ public @Data class User {
 	inverseJoinColumns = @JoinColumn(name="program_id"))
 	private List<Program> programs = new ArrayList<Program>(); 
 	
-	@ManyToMany
-	@JoinTable(name="user_sport",
-	joinColumns = {@JoinColumn(name="user_id")},
-	inverseJoinColumns = @JoinColumn(name="sport_id"))
-	private List<Sport> sports = new ArrayList<Sport>();
-	
-	@OneToMany
+	@OneToMany(mappedBy = "userProgressing")
 	private List<InProgress> inProgress = new ArrayList<InProgress>(); 
+	
+	@OneToMany(mappedBy = "usercertified")
+	private List<Degree> degreesCoach = new ArrayList<Degree>();;
 	
 	public User() {
 		super();
 	}
-
 
 	public User(String firstName, String lastName, String userName, String email, String password, Date birthDate,
 			Erole role, boolean commercial, boolean isDisactivated) {

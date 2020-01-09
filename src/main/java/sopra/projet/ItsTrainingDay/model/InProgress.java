@@ -1,10 +1,14 @@
 package sopra.projet.ItsTrainingDay.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -23,7 +27,11 @@ public @Data class InProgress {
 	private Date endDate;
 	private Integer progression;
 	
-
+	@ManyToOne
+	private User userProgressing;
+	
+	@OneToMany(mappedBy = "inProgress")
+	private List<Program> progInProgress = new ArrayList<Program>();
 	
 	public InProgress() {
 		super();

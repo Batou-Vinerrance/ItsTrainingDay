@@ -28,9 +28,6 @@ public @Data class Sport {
 	@OneToMany(mappedBy = "sport")
 	private List<Program> programs = new ArrayList<Program>(); 
 	
-	@ManyToMany (mappedBy = "sports")
-	private List<User> users = new ArrayList<User>(); 
-	
 	@OneToMany(mappedBy = "sport")
 	private List<Specialisation> specialisations = new ArrayList<Specialisation>(); 
 	
@@ -38,7 +35,10 @@ public @Data class Sport {
 	@JoinTable(name="sport_level",
 	joinColumns = @JoinColumn(name="sport_id"),
 	inverseJoinColumns = @JoinColumn(name="level_id"))
-	private List<Level> levels = new ArrayList<Level>(); 
+	private List<Level> levels = new ArrayList<Level>();
+	
+	@OneToMany(mappedBy = "sport")
+	private List<Degree> degreeSport = new ArrayList<Degree>();
 	
 	public Sport() {
 		super();

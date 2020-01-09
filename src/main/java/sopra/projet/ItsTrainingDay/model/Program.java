@@ -2,12 +2,14 @@ package sopra.projet.ItsTrainingDay.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
 import lombok.Data;
 
+@Entity
 public @Data class Program {
 
 		@Id

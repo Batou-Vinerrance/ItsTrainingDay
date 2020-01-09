@@ -8,7 +8,7 @@ import javax.persistence.Version;
 import lombok.Data;
 
 @Entity
-public @Data class Certificate {
+public @Data class Degree {
 	
 	@Id
 	@GeneratedValue
@@ -17,11 +17,11 @@ public @Data class Certificate {
 	private int version;
 	private boolean certificate;
 	
-	public Certificate() {
+	public Degree() {
 		super();
 	}
 	
-	public Certificate(boolean certificate) {
+	public Degree(boolean certificate) {
 		super();
 		this.certificate = certificate;
 	}

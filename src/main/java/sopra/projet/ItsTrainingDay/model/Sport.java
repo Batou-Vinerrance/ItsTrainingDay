@@ -1,11 +1,20 @@
 package sopra.projet.ItsTrainingDay.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import lombok.Data;
 
+@Entity
 public @Data class Sport {
 
 	@Id
@@ -15,6 +24,22 @@ public @Data class Sport {
 	private int version;
 	private String sportName;
 	private String sportDescription;
+	
+	@OneToMany(mappedBy = "sport")
+	private List<Program> programs = new ArrayList<Program>(); 
+	
+	@ManyToMany (mappedBy = "sports")
+	private List<User> users = new ArrayList<User>(); 
+	
+	@OneToMany(mappedBy = "sport")
+	private List<Specialisation> specialisations = new ArrayList<Specialisation>(); 
+	
+	@ManyToMany
+	@JoinTable(name="sport_level",
+	joinColumns = @JoinColumn(name="sport_id"),
+	inverseJoinColumns = @JoinColumn(name="level_id"))
+	private List<Level> levels = new ArrayList<Level>(); 
+	
 	public Sport() {
 		super();
 	}

@@ -1,8 +1,13 @@
 package sopra.projet.ItsTrainingDay.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import lombok.Data;
@@ -17,6 +22,16 @@ public @Data class Level {
 	private int version;
 	private String levelName;
 	private String levelDescription;
+	
+	@ManyToMany (mappedBy = "levels")
+	private List<Sport> sports = new ArrayList<Sport>(); 
+	
+	@ManyToMany (mappedBy = "levels")
+	private List<Specialisation> specialisations = new ArrayList<Specialisation>(); 
+	
+	@OneToMany (mappedBy = "level")
+	private List<Program> programs = new ArrayList<Program>(); 
+	
 	
 	public Level() {
 		super();

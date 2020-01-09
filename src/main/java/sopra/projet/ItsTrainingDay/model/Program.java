@@ -11,13 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Version;
 
 import lombok.Data;
 
 @Entity
-
 public @Data class Program {
 
 		@Id

@@ -26,7 +26,7 @@ public @Data class Level {
 	@ManyToMany (mappedBy = "levels")
 	private List<Sport> sports = new ArrayList<Sport>(); 
 	
-	@ManyToMany (mappedBy = "levels")
+	@ManyToMany (mappedBy = "levelss")
 	private List<Specialisation> specialisations = new ArrayList<Specialisation>(); 
 	
 	@OneToMany (mappedBy = "level")

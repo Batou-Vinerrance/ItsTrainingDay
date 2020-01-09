@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import lombok.Data;
@@ -37,15 +38,18 @@ public @Data class User {
 	
 	@ManyToMany
 	@JoinTable(name="user_program",
-	joinColumns = @JoinColumn(name="user_id"),
+	joinColumns = {@JoinColumn(name="user_id")},
 	inverseJoinColumns = @JoinColumn(name="program_id"))
 	private List<Program> programs = new ArrayList<Program>(); 
 	
 	@ManyToMany
 	@JoinTable(name="user_sport",
-	joinColumns = @JoinColumn(name="user_id"),
+	joinColumns = {@JoinColumn(name="user_id")},
 	inverseJoinColumns = @JoinColumn(name="sport_id"))
-	private List<Sport> sports = new ArrayList<Sport>(); 
+	private List<Sport> sports = new ArrayList<Sport>();
+	
+	@OneToMany
+	private List<InProgress> inProgress = new ArrayList<InProgress>(); 
 	
 	public User() {
 		super();

@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import lombok.Data;
@@ -30,12 +31,12 @@ public @Data class Specialisation {
 	
 	@ManyToMany
 	@JoinTable(name="Specialisation_level",
-	joinColumns = @JoinColumn(name="Specialisation_id"),
+	joinColumns = {@JoinColumn(name="Specialisation_id")},
 	inverseJoinColumns = @JoinColumn(name="level_id"))
-	private List<Level> levels = new ArrayList<Level>(); 
+	private List<Level> levelss = new ArrayList<Level>(); 
 	
-	@ManyToOne
-	private List<Program> programs = new ArrayList<Program>(); 
+	@OneToMany
+	private List<Program> programss = new ArrayList<Program>(); 
 	
 	public Specialisation() {
 		super();

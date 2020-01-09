@@ -5,11 +5,13 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
 import lombok.Data;
 
 @Entity
+@Table(name = "InProgress")
 public @Data class InProgress {
 
 	@Id
@@ -20,6 +22,8 @@ public @Data class InProgress {
 	private Date beginingDate;
 	private Date endDate;
 	private Integer progression;
+	
+
 	
 	public InProgress() {
 		super();

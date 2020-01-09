@@ -19,7 +19,10 @@ import javax.persistence.Version;
 import lombok.Data;
 
 @Entity
+<<<<<<< HEAD
 @Table(name = "athlete")
+=======
+>>>>>>> 1e328a74d4d2eb7403142b2c7faca1fa8cce3e9d
 public @Data class User {
 	
 	@Id

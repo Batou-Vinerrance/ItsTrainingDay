@@ -24,4 +24,20 @@ public @Data class Program {
 		private Date creationDate;
 		private boolean isValidated;
 		private boolean isDone;
+		
+		public Program() {
+			super();
+		}
+		
+		public Program(String name, String description, int duration, int nbValidation, Date creationDate,
+				boolean isValidated, boolean isDone) {
+			super();
+			this.name = name;
+			this.description = description;
+			this.duration = duration;
+			this.nbValidation = nbValidation;
+			this.creationDate = creationDate;
+			this.isValidated = isValidated;
+			this.isDone = isDone;
+		}
 }

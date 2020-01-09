@@ -24,6 +24,20 @@ public @Data class User {
 	private String password;
 	private Date birthDate;
 	
+	public User() {
+		super();
+	}
+
+	public User(String firstName, String lastName, String userName, String email, String password, Date birthDate) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.birthDate = birthDate;
+	}
+	
 	
 	
 	

@@ -21,4 +21,17 @@ public @Data class InProgress {
 	private Date endDate;
 	private Integer progression;
 	
+	public InProgress() {
+		super();
+	}
+	
+	public InProgress(Date beginingDate, Date endDate, Integer progression) {
+		super();
+		this.beginingDate = beginingDate;
+		this.endDate = endDate;
+		this.progression = progression;
+	}
+	
+	
+	
 }

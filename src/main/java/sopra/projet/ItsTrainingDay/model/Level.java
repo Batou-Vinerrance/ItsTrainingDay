@@ -17,4 +17,16 @@ public @Data class Level {
 	private int version;
 	private String levelName;
 	private String levelDescription;
+	
+	public Level() {
+		super();
+	}
+	
+	public Level(String levelName, String levelDescription) {
+		super();
+		this.levelName = levelName;
+		this.levelDescription = levelDescription;
+	}
+	
+	
 }

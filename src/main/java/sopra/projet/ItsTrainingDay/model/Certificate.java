@@ -5,8 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
+import lombok.Data;
+
 @Entity
-public class Certificate {
+public @Data class Certificate {
 	
 	@Id
 	@GeneratedValue
@@ -14,4 +16,15 @@ public class Certificate {
 	@Version
 	private int version;
 	private boolean certificate;
+	
+	public Certificate() {
+		super();
+	}
+	
+	public Certificate(boolean certificate) {
+		super();
+		this.certificate = certificate;
+	}
+	
+	
 }
